@@ -1,0 +1,64 @@
+.nav {
+    float: right;
+    padding-right: 3rem;
+    width: 10px;
+    height: auto;
+  }
+.img {
+  width: 65px;
+  height: auto;
+}
+.nav-bar{
+  background-color: #f8f8f8;
+  padding: 1rem;
+}
+
+.navbar_links {
+  display: none; /* Masquer la barre de navigation par défaut */
+  list-style: none;
+}
+
+.menu-icon {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.navbar.active .navbar_links {
+  display: flex;
+  flex-direction: column;
+  background-color: grey; /* Couleur de fond du menu mobile */
+  position: absolute;
+  top: 40px; /* Ajustez cela en fonction de votre conception */
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Ombre légère pour le menu */
+}
+
+.navbar.active .navbar_links a {
+  color: #fff; /* Couleur du texte pour les liens dans le menu mobile */
+}
+
+
+@media screen and (min-width: 768px) {
+  .nav {
+    float: left;
+  }
+  .navbar_links {
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+  }
+
+  .menu-icon {
+    display: none; /* Masquer l'icône hamburger sur des écrans plus larges */
+  }
+
+  .navbar.active .navbar_links {
+    display: flex !important; /* Forcer l'affichage de la barre de navigation sur l'animation */
+  }
+
+  .navbar.active .navbar_links a {
+    color: grey; /* Réinitialiser la couleur du texte pour les liens dans la barre de navigation */
+  }
+}
