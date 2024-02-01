@@ -1,0 +1,39 @@
+
+
+/* Style de la table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tr {
+  display: none;
+}
+
+/* Style des cellules d'en-tête */
+th {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Style des cellules de données */
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Style des liens dans la colonne "actions" */
+td a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+/* Style des liens au survol */
+td a:hover {
+  text-decoration: underline;
+}

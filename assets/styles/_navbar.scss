@@ -5,10 +5,11 @@
     height: auto;
   }
 .img {
-  width: 60px;
-  height: auto;
+  width: 50px;
+  z-index: 1;
 }
 .nav-bar{
+  margin-bottom: 10px;
   background-color: #f8f8f8;
   padding: 1rem;
 }
@@ -16,6 +17,10 @@
 .navbar_links {
   display: none; /* Masquer la barre de navigation par défaut */
   list-style: none;
+}
+
+.navbar_links a {
+   text-decoration: none;
 }
 
 .menu-icon {
