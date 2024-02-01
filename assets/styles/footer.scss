@@ -1,10 +1,18 @@
+.container {
+  background-color: #f8f8f8;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer{
+  position: relative;
+  bottom: 0;
+}
 
 .base_footer {
   text-align: left;
   padding: 10px;
-}
-.general{
-  margin-bottom: 0;
 }
 .base_footer img {
   max-width: 100%;
@@ -12,24 +20,17 @@
 }
 
   /* Footer */
-  .footer {
-    background-color: #f8f8f8;
-    padding: 20px;
-  }
+
 .ft {
   width: 65px;
   height: auto;
 }
   .footer_links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     justify-content: space-around;
   }
 
   .footer_links a {
-    display: block;
     padding: 10px 0;
     text-decoration: none;
     color: #333;
@@ -45,3 +46,6 @@
     height: auto;
   }
 
+@media screen and (min-width: 768px){
+
+}
