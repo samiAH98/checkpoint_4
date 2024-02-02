@@ -8,12 +8,23 @@
     <ul class="navbar_links">
         <li><a href="/">Accueil</a></li>
         <li><a href="/cake">Cake</a></li>
-        <li><a href="/login">Membres</a></li>
         <li><a href="#contact">Contact</a></li>
+        <div class="navbar-right">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <p><a class="connection" href="{{ path('app_logout') }}">Me déconnecter</a></p>
+                <p><a href="{{ path('app_user_show', {'id': app.user.id}) }}">Mon profil</a></p>
+            {% else %}
+
+                <p><a class="connection" href="{{ path('app_login') }}">Me connecter</a></p>
+
+            {% endif %}
+        </div>
 
     </ul>
+
+
 </nav>
-</div>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
