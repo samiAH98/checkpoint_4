@@ -2,11 +2,19 @@
 
 namespace App\Entity;
 
+use AllowDynamicProperties;
 use App\Repository\CakeRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
+
+#[Vich\Uploadable]
 #[ORM\Entity(repositoryClass: CakeRepository::class)]
 class Cake
 {
@@ -18,8 +26,15 @@ class Cake
     #[ORM\Column(length: 100)]
     private ?string $title = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $picture = null;
+
+    #[Vich\UploadableField(mapping: 'cake_picture', fileNameProperty: 'picture')]
+    #[Assert\File(
+        maxSize: '4M',
+        mimeTypes: ['image/jpeg', 'image/png', 'image/webp'],
+    )]
+    private ?File $pictureFile = null;
 
     #[ORM\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'cakes')]
     private Collection $ingredient;
@@ -60,6 +75,34 @@ class Cake
         $this->picture = $picture;
 
         return $this;
+    }
+
+    public function getPictureFile(): ?File
+    {
+        return $this->pictureFile;
+    }
+
+    public function setPictureFile(?File $pictureFile = null): static
+    {
+        $this->pictureFile = $pictureFile;
+
+        return $this;
+    }
+
+    public function __serialize(): array
+    {
+        return [
+            'id' => $this->id,
+            'titre' => $this->title,
+            'picture' => $this->picture,
+        ];
+    }
+
+    public function __unserialize(array $data): void
+    {
+        $this->id = $data['id'] ?? null;
+        $this->title = $data['titre'] ?? null;
+        $this->picture = $data['picture'] ?? null;
     }
 
     /**

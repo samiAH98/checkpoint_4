@@ -1,0 +1,37 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+.cake {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.cake img {
+  max-width: 20%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.cake a {
+  display: flex;
+  padding: 5px 8px;
+  background-color: #EFAD2D;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.cake a:hover {
+  background-color: #0056b3;
+}
+
+/* Ajoutez d'autres styles selon vos besoins */

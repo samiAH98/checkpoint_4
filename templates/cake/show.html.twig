@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cake{% endblock %}
+
+{% block body %}
+    <h1>Cake</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <td>{{ cake.id }}</td>
+        </tr>
+        <tr>
+            <td>{{ cake.title }}</td>
+        </tr>
+        <tr>
+            <td>{{ cake.picture }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>Ingrédients</h2>
+    {% if cake.ingredients is not empty %}
+        <ul>
+            {% for ingredient in cake.ingredients %}
+                <li>{{ ingredient.product }} - {{ ingredient.weight }}g - {{ ingredient.mass }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <h2>Commentaires</h2>
+    {% if comments is not empty %}
+        <ul>
+            {% for comment in comments %}
+                <li>{{ comment.content }} - {{ comment.utilisateur.username }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun commentaire pour le moment.</p>
+    {% endif %}
+
+    <a href="{{ path('app_comment_new', {'cakeId': cake.id}) }}">Mettre un commentaire</a>
+    <a href="{{ path('app_cake_index') }}">Revenir à la liste</a>
+{% endblock %}
