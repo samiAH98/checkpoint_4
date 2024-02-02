@@ -5,17 +5,22 @@
     height: auto;
   }
 .img {
-  width: 65px;
-  height: auto;
+  width: 50px;
+  z-index: 1;
 }
 .nav-bar{
-  background-color: #f8f8f8;
+  margin-bottom: 10px;
+  background-color: rgba(248, 248, 248, 0.29);
   padding: 1rem;
 }
 
 .navbar_links {
   display: none; /* Masquer la barre de navigation par défaut */
   list-style: none;
+}
+
+.navbar_links a {
+   text-decoration: none;
 }
 
 .menu-icon {
@@ -26,7 +31,7 @@
 .navbar.active .navbar_links {
   display: flex;
   flex-direction: column;
-  background-color: grey; /* Couleur de fond du menu mobile */
+  background-color: rgba(79, 86, 87, 0.9); /* Couleur de fond du menu mobile */
   position: absolute;
   top: 40px; /* Ajustez cela en fonction de votre conception */
   left: 0;

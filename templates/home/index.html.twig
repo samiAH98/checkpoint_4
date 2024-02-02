@@ -4,15 +4,50 @@
 
 {% block body %}
 
-<div class="contenaire">
-    <img class="rotated-image" src="/images/accueil.jpg" alt="home">
+    <h1>Bienvenu dans mon univer</h1>
+<div class="text">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        In molestie mauris feugiat metus fringilla semper.
+        Suspendisse bibendum lacus vel enim consectetur aliquet.
+        Cras hendrerit neque vel libero mollis, ac blandit felis porta.
+        Quisque a accumsan nibh, at pellentesque ligula. Nullam dictum,
+        tortor in molestie consequat, magna eros luctus mauris,
+        vel malesuada urna risus eu leo.
+    </p>
 </div>
     <div class="slider">
         <img class="img1" src="/images/biscuit.jpg" alt="logo" />
         <img class="img2" src="/images/blanche.jpg" alt="logo" />
         <img class="img3" src="/images/chocolat.jpg" alt="logo" />
-        <img class="img4" src="/images/rose.jpg" alt="logo" />
-        <img class="img5" src="/images/rouge.jpg" alt="logo" />
+        <img class="img4" src="/images/rouge.jpg" alt="logo" />
+        <img class="img5" src="/images/orange.jpg" alt="logo" />
     </div>
+            <div class="card-header">
+                <h2 id="contact">Nous Contacter</h2>
+            </div>
+            {{ form_start(form, {'attr': {'class': 'card-body'}}) }}
+
+            {{ form_row(form.name, {'label': 'Nom:'}) }}
+            {{ form_row(form.email, {'label': 'Email:'}) }}
+            {{ form_row(form.phone, {'label': 'Téléphone:'}) }}
+            {{ form_row(form.message, {'label': 'On vous écoute !'}) }}
+
+            {{ form_row(form.submit) }}
+
+            {{ form_end(form) }}
+
+    {% block script %}
+        <script src="{{ asset('js/contact.js') }}"></script>
+        {{ parent() }}
+        <script type="text/javascript">
+            $('.slider').slick({
+                centerMode: true,
+                centerPadding: '60px',
+                slidesToShow: 3,
+                autoplay: true,
+                autoplaySpeed: 2000,
+            });
+        </script>
+    {% endblock %}
 
 {% endblock %}

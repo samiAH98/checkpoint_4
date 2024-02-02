@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cake index{% endblock %}
+
+{% block body %}
+    <h1>Cake </h1>
+
+    <div class="cake">
+
+        {% for cake in cakes %}
+
+                <img src="{{ vich_uploader_asset(cake) }}" alt="{{ cake.title }}">
+
+                    <a href="{{ path('app_cake_show', {'id': cake.id}) }}">voir</a>
+                    <a href="{{ path('app_cake_delete', {'id': cake.id}) }}">supprimer</a>
+
+        {% else %}
+
+                <td colspan="4">no records found</td>
+
+        {% endfor %}
+
+    </div>
+
+{#    <a href="{{ path('app_cake_new') }}">Create new</a>#}
+{% endblock %}

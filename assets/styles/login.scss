@@ -1,0 +1,35 @@
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.my-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+/* Style du bouton de connexion */
+.btn-primary {
+  background-color: #EFAD2D;
+  color: #fff;
+}
+
+/* Style des liens */
+.loginPasswordReset {
+  display: block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Style des liens au survol */
+.loginPasswordReset:hover,
+.my-button:hover {
+  text-decoration: underline;
+}
+
+
+
